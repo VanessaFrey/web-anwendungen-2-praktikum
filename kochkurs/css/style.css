@@ -591,7 +591,7 @@ h3 {
 	margin-top: 50px;
 	width: 100%;
 	height: auto;
-	background-color: #A4A4A4;
+	background-color: #b6d7e0;
 }
 
 .endstation-inside-content{
@@ -714,7 +714,7 @@ h4{
 	font-size: 23px;
 	letter-spacing: 0.5px;
 	border-radius: 5px;
-	background-color: #000000;
+	background-color: #083f63;
 }
 
 .payment p:hover{
