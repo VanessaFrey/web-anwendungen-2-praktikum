@@ -296,10 +296,7 @@ h1 {
 	margin: 30px 10px;
 }
 
-.shoe-information {
-	width: 100%;
-	height: auto;
-}
+
 
 h5 {
 	float: left;
@@ -573,16 +570,7 @@ h3 {
 	cursor: pointer;
 }
 
-.shoe-nav {
-	float: left;
-	margin: 25px 30px;
-	width: 225px;
-	height: auto;
-}
 
-.shoe-nav a {
-	text-decoration: none !important;
-}
 
 /* ++++ warenkorb ++++ */
 
