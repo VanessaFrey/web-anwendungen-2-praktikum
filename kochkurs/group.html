@@ -102,12 +102,37 @@
                         </div>
                      </div>
                   </div>
+                  <!-- Content 3 -->
+               <div class="motion">
                   <!-- Image-Content -->
                   <div class="motion-content">
                      <div class="motion-content-inside">
                         <div class="motion-fullsize">
-							<img src="../kochkurs/image/ueberuns/Kochkurs.jpg" alt="" width="80%" height="auto" >
-                            </br> </br> 
+						<div class="content-first1">
+                             
+                           </div>
+                           <div class="content-first">
+                              <img src="../kochkurs/image/gruppen/kinder.jpg" alt="Kinder" width="100%" height="auto">
+							  </br> </br> 
+							  KINDER
+                           </div>
+                          <div class="content-first">
+                              <img src="../kochkurs/image/gruppen/maenner.jpg" alt="Maenner" width="100%" height="auto">
+							  </br> </br> 
+							  MÄNNER
+                           </div>
+                          <div class="content-first">
+                              <img src="../kochkurs/image/gruppen/anfaenger.jpg" alt="Anfaenger" width="100%" height="auto">
+							  </br> </br> 
+							  ANFÄNGER
+                           </div>
+                         
+                        </div>
+                     </div>
+                  </div>
+                  </br> </br> </br> </br> 
+                  </br> </br> </br> </br> 
+                  </br> </br> </br> </br> 
 							<p class="aboutUs">
 							vidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam 
 							et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
@@ -115,23 +140,27 @@
                      </p>
                      </br> 
                      </br>
-                     <table>
+                     <table text-algin="center">
                         <tr>
                            <td>Anrede: </td>
-                           <td> <input type="radio" name="Anrede" value="Herr" checked="checked"/>Herr</td>
-                           <td> <input type="radio" name="Anrede" value="Frau"/>Frau</td>
-                           <td> <input type="radio" name="Anrede" value="Firma"/>Firma</td>
+                           <td> 
+                              <select name="Anrede">
+                                 <option value="Herr">Herr</option>
+                                 <option value="Frau">Frau</option>
+                                 <option value="Firma">Firma</option>
+                              </select>
+                           </td>
                         </tr>
                         <tr>
-                           <td>Vorname</td>
+                           <td>Vorname: </td>
                            <td> <input type="text" name="Vorname"/></td>
                         </tr>
                         <tr>
-                           <td>Nachname</td>
+                           <td>Nachname: </td>
                            <td> <input type="text" name="Nachname"/></td>
                         </tr>
                         <tr>
-                           <td>Firmenbezeichnung</td>
+                           <td>Firmenbezeichnung: </td>
                            <td> <input type="text" name="Firmenbezeichnung"/></td>
                         </tr>
                         <tr>
@@ -140,21 +169,39 @@
                         </tr>
                         <tr>
                            <td>Kursteilnehmer: </td>
-                           <td> <input type="radio" name="Kursteilnehmer" value="5" checked="checked"/>5</td>
-                           <td> <input type="radio" name="Kursteilnehmer" value="10"/>10</td>
-                           <td> <input type="radio" name="Kursteilnehmer" value="20"/>20</td>
-                           <td> <input type="radio" name="Kursteilnehmer" value="50"/>50</td>
+                           <td> 
+                              <select name="Kursteilnehmer">
+                                    <option value="5">5</option>
+                                    <option value="10">10</option>
+                                    <option value="20">20</option>
+                                    <option value="50">50</option>
+                              </select>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td>Art der Teilnehmer:</td>
+                           <td> 
+                              <select name="Art der Teilnehmer">
+                                 <option value="Kinder">Kinder</option>
+                                 <option value="Männer">Männer</option>
+                                 <option value="Anfänger">Anfänger</option>
+                              </select>
+                           </td>
                         </tr>
                         <tr>
                            <td>Art des Kochkurses: </td>
-                           <td> <input type="radio" name="Art des Kochkurses" value="Asiatisch" checked="checked"/>Asiatisch</td>
-                           <td> <input type="radio" name="Art des Kochkurses" value="Fleisch- & Grillkurs"/>Fleisch- & Grillkurs</td>
-                           <td> <input type="radio" name="Art des Kochkurses" value="Italienisch"/>Italienisch</td>
-                           <td> <input type="radio" name="Art des Kochkurses" value="Backkurs"/>Backkurs</td>
+                           <td> 
+                                 <select name="Art des Kochkurses">
+                                    <option value="Asiatisch">Asiatisch</option>
+                                    <option value="Fleisch- & Grillkurs">Fleisch- & Grillkurs</option>
+                                    <option value="Italienisch">Italienisch</option>
+                                    <option value="Backkurs">Backkurs</option>
+                                 </select>
+                              </td>
                         </tr>
                         <tr>
                            <td>Anlass:</td>
-                           <td><textarea name="message" rows="10" cols="30">Ihre Mitteilung...</textarea></td>
+                           <td><textarea name="message" rows="5" cols="50">Ihre Mitteilung...</textarea></td>
                         </tr>
                         <tr>
                            <td></td>
