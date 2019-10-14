@@ -135,53 +135,6 @@ nav ul li a:hover {
 }
 
 
-/* ++++ Header-Search Toggle ++++ */
-
-.search-container {
-	position: absolute;
-	z-index: 10;
-	left: 0;
-	right: 0;
-	width: 100%;
-	top: 85px;
-	height: 85px;
-	background-color: #D8D8D8;
-	display: none;
-}
-
-.search-inside {
-	margin: 0 auto;
-	width: 1140px;
-	height: 85px;
-	background-color: #D8D8D8;
-}
-
-.search-fullsize {
-	padding: 17px 20px;
-	width: 100%;
-	height: 85px;
-}
-
-.search-input {
-	float: left;
-	width: 1000px;
-	border: none;
-	border-right: none !important;
-	border: 1px solid #000000;
-	height: 50px;
-	padding: 0 15px;
-	font-size: 20px;
-}
-
-.search-icon {
-	display: block;
-	float: left;
-	width: 60px;
-	height: 50px;
-	color: #FFFFFF;
-	border: 1px solid #000000;
-	background-color: #000000;
-}
 
 /* ++++ Header-Cart ++++ Einkaufswagen */
 
