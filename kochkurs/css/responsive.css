@@ -33,13 +33,7 @@
 		width: 180px !important;
 		height: 205px !important;
 	}
-	/* #### Search - FINISH #### */
-	.search-inside {
-		max-width: 960px;
-	}
-	.search-input {
-		width: 830px !important;
-	}
+	
 	/* #### Fullsize-image-tool #### */
 	.fullsize-inside-content{
 		width: 960px !important;
@@ -173,17 +167,7 @@
 		width: 120px !important;
 		height: 145px !important;
 	}
-	/* #### Search - FINISH #### */
-	.search-container {
-		width: auto !important;
-		left: -10% !important;
-	}
-	.search-inside {
-		width: 560px !important;
-	}
-	.search-input {
-		width: 455px !important;
-	}
+
 	/* #### Fullsize-image-tool #### */
 	.fullsize-inside-content{
 		width: 860px !important;
@@ -278,17 +262,7 @@
 		width: 100px !important;
 		height: 125px !important;
 	}
-	/* #### Search - FINISH #### */
-	.search-container {
-		width: auto !important;
-		left: -45% !important;
-	}
-	.search-inside {
-		width: 540px !important;
-	}
-	.search-input {
-		width: 440px !important;
-	}
+	
 	/* #### Endstation - FINISH #### */
 	.endstation-inside-content{
 		width: 540px !important;
@@ -382,17 +356,7 @@
 		width: 120px !important;
 		height: 120px !important;
 	}
-	/* #### Search - FINISH #### */
-	.search-container {
-		width: auto !important;
-		left: -49% !important;
-	}
-	.search-inside {
-		width: 440px !important;
-	}
-	.search-input {
-		width: 340px !important;
-	}
+	
 	/* #### Endstation - FINISH #### */
 	.endstation-inside-content{
 		width: 440px !important;
