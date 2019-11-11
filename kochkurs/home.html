@@ -134,7 +134,8 @@
                   <!-- Image-Content -->
                   <div class="motion-content">
                      <div class="motion-content-inside">
-                        <div class="motion-fullsize">
+                        <div class="motion-fullsize" id="kursvorschau">
+                           <!--
                            <div class="content-first">
                               <img src="../kochkurs/image/kochkursArt/sushi.jpg" alt="Sushi" width="100%" height="auto">
 							  </br> </br>
@@ -155,6 +156,7 @@
 							  </br> </br>
 							  BACKKURS
                            </div>
+                           //-->
                         </div>
                      </div>
                   </div>
@@ -256,6 +258,7 @@
 			   
             </div>
          </div>
+
       </main>
       <!-- **** Footer **** -->
       <footer>
@@ -297,12 +300,64 @@
             </div>
          </div>
       </footer>
+
 	  
       <!-- **** Script Menu-Toggle **** -->
       <script src="../kochkurs/javascript/menu/menu-toggle.js"></script>
       <!-- **** Script Search **** -->
       <script src="../kochkurs/javascript/search/search.js"></script> 
 	  <!-- **** Script Search **** -->
-      <script src="../kochkurs/javascript/cart/cart.js"></script>  
+      <script src="../kochkurs/javascript/cart/cart.js"></script>
+
+
+      <script>
+
+         $(document).ready(function() {
+
+            $.ajax({
+               url: 'http://localhost:8000/api/Produkt/alle',
+               method: 'GET',
+				   dataType: "json"
+            })
+            .done(function(response) {
+               var kurse = response.daten;
+
+               var content = '';
+
+               for (i=0; i<kurse.length; i++) {
+                  content += '<div class="content-first">';
+                  content += kurse[i].bezeichnung;
+                  content += '</div>'; 
+               }
+
+               $('#kursvorschau').append(content);
+            })
+            .fail(function (jqXHR, statusText, error) {
+                console.log("Response Code: " + jqXHR.status + " - Fehlermeldung: " + jqXHR.responseText);
+                alert("Ein Fehler ist aufgetreten");
+            });;
+
+
+/*
+            var kursnamen = [ "ASIATISCH", "FLEISCH", "ITALO", "BACKEN" ];
+
+            var content = '';
+
+            for (i=0; i<kursnamen.length; i++) {
+               content += '<div class="content-first">';
+               content += kursnamen[i];
+               content += '</div>'; 
+            }
+
+            $('#kursvorschau').append(content);
+*/
+
+         });
+      
+         
+      
+      </script>
+
+
    </body>
 </html>
