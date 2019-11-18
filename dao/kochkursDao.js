@@ -145,7 +145,7 @@ class KochkursDao {
         const produktbildDao = new ProduktbildDao(this._conn);
         produktbildDao.deleteByParent(id);
 
-        var sql = "UPDATE Produkt SET KategorieID=?,Bezeichnung=?,Beschreibung=?,MehrwertsteuerID=?,Details=?,Nettopreis=?,DatenblattID=? WHERE ID=?";
+        var sql = "UPDATE Kochkurs SET KategorieID=?,Bezeichnung=?,Beschreibung=?,MehrwertsteuerID=?,Details=?,Nettopreis=?,DatenblattID=? WHERE ID=?";
         var statement = this._conn.prepare(sql);
         var params = [kategorieid, bezeichnung, beschreibung, mehrwertsteuerid, details, nettopreis, datenblattid, id];
         var result = statement.run(params);
