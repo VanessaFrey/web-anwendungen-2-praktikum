@@ -186,4 +186,4 @@ class KochkursDao {
     }
 }
 
-module.exports = ProduktDao;
+module.exports = KochkursDao;
