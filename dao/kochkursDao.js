@@ -13,7 +13,7 @@ class KochkursDao {
     getConnection() {
         return this._conn;
     }
-
+/*
     loadById(id) {
         const produktkategorieDao = new ProduktkategorieDao(this._conn);
         const mehrwertsteuerDao = new MehrwertsteuerDao(this._conn);
@@ -50,15 +50,15 @@ class KochkursDao {
 
         return result;
     }
-
+*/
     loadAll() {
-        const produktkategorieDao = new ProduktkategorieDao(this._conn);
-        var categories = produktkategorieDao.loadAll();
-        const mehrwertsteuerDao = new MehrwertsteuerDao(this._conn);
-        var taxes = mehrwertsteuerDao.loadAll();
-        const produktbildDao = new ProduktbildDao(this._conn);
-        var pictures = produktbildDao.loadAll();
-        const downloadDao = new DownloadDao(this._conn);
+       // const produktkategorieDao = new ProduktkategorieDao(this._conn);
+       // var categories = produktkategorieDao.loadAll();
+     //   const mehrwertsteuerDao = new MehrwertsteuerDao(this._conn);
+      //  var taxes = mehrwertsteuerDao.loadAll();
+      //  const produktbildDao = new ProduktbildDao(this._conn);
+      //  var pictures = produktbildDao.loadAll();
+      //  const downloadDao = new DownloadDao(this._conn);
 
         var sql = "SELECT * FROM Kochkurs";
         var statement = this._conn.prepare(sql);
@@ -68,7 +68,7 @@ class KochkursDao {
             return [];
 
         result = helper.arrayObjectKeysToLower(result);
-
+/*
         for (var i = 0; i < result.length; i++) {
             for (var element of categories) {
                 if (element.id == result[i].kategorieid) {
@@ -104,11 +104,11 @@ class KochkursDao {
             result[i].mehrwertsteueranteil = helper.round((result[i].nettopreis / 100) * result[i].mehrwertsteuer.steuersatz);
 
             result[i].bruttopreis = helper.round(result[i].nettopreis + result[i].mehrwertsteueranteil);
-        }
+        }*/
 
         return result;
     }
-
+/*
     exists(id) {
         var sql = "SELECT COUNT(ID) AS cnt FROM Kochkurs WHERE ID=?";
         var statement = this._conn.prepare(sql);
@@ -180,10 +180,11 @@ class KochkursDao {
             throw new Error("Could not delete Record by id=" + id + ". Reason: " + ex.message);
         }
     }
-
+*/
     toString() {
         helper.log("KochkursDao [_conn=" + this._conn + "]");
     }
+    
 }
 
 module.exports = KochkursDao;

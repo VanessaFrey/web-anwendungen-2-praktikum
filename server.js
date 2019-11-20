@@ -56,6 +56,10 @@ try {
 
     // bind services endpoints
     const TOPLEVELPATH = "/api";
+
+    serviceRouter = require("./services/kochkurs.js");
+    app.use(TOPLEVELPATH, serviceRouter);
+
     var serviceRouter = require("./services/land.js");
     app.use(TOPLEVELPATH, serviceRouter);
 
