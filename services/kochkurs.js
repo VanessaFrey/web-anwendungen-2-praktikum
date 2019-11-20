@@ -2,7 +2,7 @@ const helper = require("../helper.js");
 const KochkursDao = require("../dao/kochkursDao.js");
 const express = require("express");
 var serviceRouter = express.Router();
-
+/*
 serviceRouter.get("/kochkurs/gib/:id", function(request, response) {
     helper.log("Service Kochkurs: Client requested one record, id=" + request.params.id);
 
@@ -15,7 +15,7 @@ serviceRouter.get("/kochkurs/gib/:id", function(request, response) {
         helper.logError("Service Kochkurs: Error loading record by id. Exception occured: " + ex.message);
         response.status(400).json(helper.jsonMsgError(ex.message));
     }
-});
+});*/
 
 serviceRouter.get("/kochkurs/alle/", function(request, response) {
     helper.log("Service Kochkurs: Client requested all records");
@@ -30,7 +30,7 @@ serviceRouter.get("/kochkurs/alle/", function(request, response) {
         response.status(400).json(helper.jsonMsgError(ex.message));
     }
 });
-
+/*
 serviceRouter.get("/kochkurs/existiert/:id", function(request, response) {
     helper.log("Service Kochkurs: Client requested check, if record exists, id=" + request.params.id);
 
@@ -162,6 +162,6 @@ serviceRouter.delete("/kochkurs/:id", function(request, response) {
         helper.logError("Service Kochkurs: Error deleting record. Exception occured: " + ex.message);
         response.status(400).json(helper.jsonMsgError(ex.message));
     }
-});
+});*/
 
 module.exports = serviceRouter;
