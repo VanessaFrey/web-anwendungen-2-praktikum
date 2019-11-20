@@ -1,8 +1,8 @@
 const helper = require("../helper.js");
-const ProduktkategorieDao = require("./produktkategorieDao.js");
-const MehrwertsteuerDao = require("./mehrwertsteuerDao.js");
-const DownloadDao = require("./downloadDao.js");
-const ProduktbildDao = require("./produktbildDao.js");
+//const ProduktkategorieDao = require("./produktkategorieDao.js");
+//const MehrwertsteuerDao = require("./mehrwertsteuerDao.js");
+//const DownloadDao = require("./downloadDao.js");
+//const ProduktbildDao = require("./produktbildDao.js");
 
 class KochkursDao {
 
@@ -104,9 +104,10 @@ class KochkursDao {
             result[i].mehrwertsteueranteil = helper.round((result[i].nettopreis / 100) * result[i].mehrwertsteuer.steuersatz);
 
             result[i].bruttopreis = helper.round(result[i].nettopreis + result[i].mehrwertsteueranteil);
-        }*/
-
+        }
+*/
         return result;
+        
     }
 /*
     exists(id) {
