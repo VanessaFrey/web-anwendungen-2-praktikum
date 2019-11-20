@@ -67,7 +67,7 @@ class KochkursDao {
         if (helper.isArrayEmpty(result)) 
             return [];
 
-        result = helper.arrayObjectKeysToLower(result);
+        result =  helper.arrayObjectKeysToLower(result);
 /*
         for (var i = 0; i < result.length; i++) {
             for (var element of categories) {
