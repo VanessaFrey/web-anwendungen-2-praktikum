@@ -46,48 +46,11 @@ class KochkursDao {
             return [];
 
         result =  helper.arrayObjectKeysToLower(result);
-/*
-        for (var i = 0; i < result.length; i++) {
-            for (var element of categories) {
-                if (element.id == result[i].kategorieid) {
-                    result[i].kategorie = element;
-                    break;
-                }
-            }
-            delete result[i].kategorieid;
 
-            for (var element of taxes) {
-                if (element.id == result[i].mehrwertsteuerid) {
-                    result[i].mehrwertsteuer = element;
-                    break;
-                }
-            }
-            delete result[i].mehrwertsteuerid;
-
-            if (helper.isNull(result[i].datenblattid)) {
-                result[i].datenblatt = null;
-            } else {
-                result[i].datenblatt = downloadDao.loadById(result[i].datenblattid);
-            }
-            delete result[i].datenblattid;
-
-            result[i].bilder = [];
-            for (var element of pictures) {
-                if (element.produktid == result[i].id) {
-                    delete element.produktid;
-                    result[i].bilder.push(element);
-                }
-            }
-
-            result[i].mehrwertsteueranteil = helper.round((result[i].nettopreis / 100) * result[i].mehrwertsteuer.steuersatz);
-
-            result[i].bruttopreis = helper.round(result[i].nettopreis + result[i].mehrwertsteueranteil);
-        }
-*/
         return result;
         
     }
-/*
+
     exists(id) {
         var sql = "SELECT COUNT(ID) AS cnt FROM Kochkurs WHERE ID=?";
         var statement = this._conn.prepare(sql);
@@ -98,6 +61,7 @@ class KochkursDao {
 
         return false;
     }
+    /*
 
     create(kategorieid = 1, bezeichnung = "", beschreibung = "", mehrwertsteuerid = 1, details = null, nettopreis = 0.0, datenblattid = null, bilder = []) {
         const produktbildDao = new ProduktbildDao(this._conn);
