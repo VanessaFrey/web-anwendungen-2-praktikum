@@ -84,12 +84,10 @@ class KochkursDao {
         var updatedObj = this.loadById(id);
         return updatedObj;
     }
-
+*/
     delete(id) {
         try {
-            const produktbildDao = new ProduktbildDao(this._conn);
-            produktbildDao.deleteByParent(id);
-
+            
             var sql = "DELETE FROM Kochkurs WHERE ID=?";
             var statement = this._conn.prepare(sql);
             var result = statement.run(id);
@@ -102,7 +100,7 @@ class KochkursDao {
             throw new Error("Could not delete Record by id=" + id + ". Reason: " + ex.message);
         }
     }
-*/
+
     toString() {
         helper.log("KochkursDao [_conn=" + this._conn + "]");
     }
