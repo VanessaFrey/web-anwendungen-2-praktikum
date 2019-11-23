@@ -28,7 +28,7 @@ class KochkursDao {
 
         return result;
     }
-/*
+
     loadAll() {
        // const produktkategorieDao = new ProduktkategorieDao(this._conn);
        // var categories = produktkategorieDao.loadAll();
