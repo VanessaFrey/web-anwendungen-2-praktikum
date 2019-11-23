@@ -45,41 +45,23 @@ serviceRouter.get("/kochkurs/existiert/:id", function(request, response) {
     }
 });
 
-/*
+
 serviceRouter.post("/kochkurs", function(request, response) {
     helper.log("Service Kochkurs: Client requested creation of new record");
 
     var errorMsgs=[];
-    if (helper.isUndefined(request.body.bezeichnung)) 
-        errorMsgs.push("bezeichnung fehlt");
-    if (helper.isUndefined(request.body.beschreibung)) 
-        request.body.beschreibung = "";
-    if (helper.isUndefined(request.body.details)) 
-        request.body.details = null;
-    if (helper.isUndefined(request.body.nettopreis)) 
-        errorMsgs.push("nettopreis fehlt");
-    if (!helper.isNumeric(request.body.nettopreis)) 
-        errorMsgs.push("nettopreis muss eine Zahl sein");
-    if (helper.isUndefined(request.body.kategorie)) {
-        errorMsgs.push("kategorie fehlt");
-    } else if (helper.isUndefined(request.body.kategorie.id)) {
-        errorMsgs.push("kategorie gesetzt, aber id fehlt");
-    }        
-    if (helper.isUndefined(request.body.mehrwertsteuer)) {
-        errorMsgs.push("mehrwertsteuer fehlt");
-    } else if (helper.isUndefined(request.body.mehrwertsteuer.id)) {
-        errorMsgs.push("mehrwertsteuer gesetzt, aber id fehlt");
-    }        
-    if (helper.isUndefined(request.body.datenblatt)) {
-        request.body.datenblatt = null;
-    } else if (helper.isUndefined(request.body.datenblatt.id)) {
-        errorMsgs.push("datenblatt gesetzt, aber id fehlt");
-    } else {
-        request.body.datenblatt = request.body.datenblatt.id;
-    }
-    if (helper.isUndefined(request.body.bilder)) 
-        request.body.bilder = [];
+    if (helper.isUndefined(request.body.titel)) 
+        errorMsgs.push("titel fehlt");
+    if (helper.isUndefined(request.body.leistungen)) 
+        request.body.leistungen = "";
+    if (helper.isUndefined(request.body.informationen)) 
+        request.body.informationen = null;
+    if (helper.isUndefined(request.body.bruttopreis)) 
+        errorMsgs.push("bruttopreis fehlt");
+    if (!helper.isNumeric(request.body.bruttopreis)) 
+        errorMsgs.push("bruttopreis muss eine Zahl sein");
     
+   
     if (errorMsgs.length > 0) {
         helper.log("Service Kochkurs: Creation not possible, data missing");
         response.status(400).json(helper.jsonMsgError("Hinzufügen nicht möglich. Fehlende Daten: " + helper.concatArray(errorMsgs)));
@@ -88,7 +70,7 @@ serviceRouter.post("/kochkurs", function(request, response) {
 
     const kochkursDao = new KochkursDao(request.app.locals.dbConnection);
     try {
-        var result = kochkursDao.create(request.body.kategorie.id, request.body.bezeichnung, request.body.beschreibung, request.body.mehrwertsteuer.id, request.body.details, request.body.nettopreis, request.body.datenblatt, request.body.bilder);
+        var result = kochkursDao.create( request.body.titel, request.body.leistungen, request.body.informationen, request.body.bruttppreis);
         helper.log("Service Kochkurs: Record inserted");
         response.status(200).json(helper.jsonMsgOK(result));
     } catch (ex) {
@@ -96,7 +78,7 @@ serviceRouter.post("/kochkurs", function(request, response) {
         response.status(400).json(helper.jsonMsgError(ex.message));
     }
 });
-
+/*
 serviceRouter.put("/kochkurs", function(request, response) {
     helper.log("Service Kochkurs: Client requested update of existing record");
 

@@ -1,8 +1,4 @@
 const helper = require("../helper.js");
-//const ProduktkategorieDao = require("./produktkategorieDao.js");
-//const MehrwertsteuerDao = require("./mehrwertsteuerDao.js");
-//const DownloadDao = require("./downloadDao.js");
-//const ProduktbildDao = require("./produktbildDao.js");
 
 class KochkursDao {
 
@@ -24,20 +20,11 @@ class KochkursDao {
         if (helper.isUndefined(result)) 
             throw new Error("No Record found by id=" + id);
 
-        result = helper.objectKeysToLower(result);
+       return helper.objectKeysToLower(result);
 
-        return result;
     }
 
     loadAll() {
-       // const produktkategorieDao = new ProduktkategorieDao(this._conn);
-       // var categories = produktkategorieDao.loadAll();
-     //   const mehrwertsteuerDao = new MehrwertsteuerDao(this._conn);
-      //  var taxes = mehrwertsteuerDao.loadAll();
-      //  const produktbildDao = new ProduktbildDao(this._conn);
-      //  var pictures = produktbildDao.loadAll();
-      //  const downloadDao = new DownloadDao(this._conn);
-
         var sql = "SELECT * FROM Kochkurs";
         var statement = this._conn.prepare(sql);
         var result = statement.all();
@@ -45,10 +32,8 @@ class KochkursDao {
         if (helper.isArrayEmpty(result)) 
             return [];
 
-        result =  helper.arrayObjectKeysToLower(result);
+        return  helper.arrayObjectKeysToLower(result);
 
-        return result;
-        
     }
 
     exists(id) {
@@ -61,29 +46,23 @@ class KochkursDao {
 
         return false;
     }
-    /*
+    
 
-    create(kategorieid = 1, bezeichnung = "", beschreibung = "", mehrwertsteuerid = 1, details = null, nettopreis = 0.0, datenblattid = null, bilder = []) {
-        const produktbildDao = new ProduktbildDao(this._conn);
+    create( titel = "", leistungen = "", informationen = "", bruttopreis = 0.0) {
+       // const produktbildDao = new ProduktbildDao(this._conn);
 
-        var sql = "INSERT INTO Kochkurs (KategorieID,Bezeichnung,Beschreibung,MehrwertsteuerID,Details,Nettopreis,DatenblattID) VALUES (?,?,?,?,?,?,?)";
+        var sql = "INSERT INTO Kochkurs (Titel,Leistungen,Informationen,Bruttoopreis) VALUES (?,?,?,?)";
         var statement = this._conn.prepare(sql);
-        var params = [kategorieid, bezeichnung, beschreibung, mehrwertsteuerid, details, nettopreis, datenblattid];
+        var params = [titel, leistungen, informationen, bruttopreis];
         var result = statement.run(params);
 
         if (result.changes != 1) 
             throw new Error("Could not insert new Record. Data: " + params);
 
-        if (bilder.length > 0) {
-            for (var element of bilder) {
-                produktbildDao.create(element.bildpfad, result.lastInsertRowid);
-            }
-        }
-
-        var newObj = this.loadById(result.lastInsertRowid);
-        return newObj;
+        return this.loadById(result.lastInsertRowid);
+      
     }
-
+/*
     update(id, kategorieid = 1, bezeichnung = "", beschreibung = "", mehrwertsteuerid = 1, details = null, nettopreis = 0.0, datenblattid = null, bilder = []) {
         const produktbildDao = new ProduktbildDao(this._conn);
         produktbildDao.deleteByParent(id);
