@@ -2,7 +2,7 @@ const helper = require("../helper.js");
 const KochkursDao = require("../dao/kochkursDao.js");
 const express = require("express");
 var serviceRouter = express.Router();
-/*
+
 serviceRouter.get("/kochkurs/gib/:id", function(request, response) {
     helper.log("Service Kochkurs: Client requested one record, id=" + request.params.id);
 
@@ -15,7 +15,7 @@ serviceRouter.get("/kochkurs/gib/:id", function(request, response) {
         helper.logError("Service Kochkurs: Error loading record by id. Exception occured: " + ex.message);
         response.status(400).json(helper.jsonMsgError(ex.message));
     }
-});*/
+});
 
 serviceRouter.get("/kochkurs/alle/", function(request, response) {
     helper.log("Service Kochkurs: Client requested all records");
@@ -30,21 +30,8 @@ serviceRouter.get("/kochkurs/alle/", function(request, response) {
         response.status(400).json(helper.jsonMsgError(ex.message));
     }
 });
+
 /*
-serviceRouter.get("/kochkurs/existiert/:id", function(request, response) {
-    helper.log("Service Kochkurs: Client requested check, if record exists, id=" + request.params.id);
-
-    const kochkursDao = new kochkursDao(request.app.locals.dbConnection);
-    try {
-        var result = kochkursDao.exists(request.params.id);
-        helper.log("Service Kochkurs: Check if record exists by id=" + request.params.id + ", result=" + result);
-        response.status(200).json(helper.jsonMsgOK({ "id": request.params.id, "existiert": result }));
-    } catch (ex) {
-        helper.logError("Service Kochkurs: Error checking if record exists. Exception occured: " + ex.message);
-        response.status(400).json(helper.jsonMsgError(ex.message));
-    }
-});
-
 serviceRouter.post("/kochkurs", function(request, response) {
     helper.log("Service Kochkurs: Client requested creation of new record");
 

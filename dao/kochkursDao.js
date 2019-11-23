@@ -13,12 +13,9 @@ class KochkursDao {
     getConnection() {
         return this._conn;
     }
-/*
+
     loadById(id) {
-        const produktkategorieDao = new ProduktkategorieDao(this._conn);
-        const mehrwertsteuerDao = new MehrwertsteuerDao(this._conn);
-        const downloadDao = new DownloadDao(this._conn);
-        const produktbildDao = new ProduktbildDao(this._conn);
+        
 
         var sql = "SELECT * FROM Kochkurs WHERE ID=?";
         var statement = this._conn.prepare(sql);
@@ -29,28 +26,9 @@ class KochkursDao {
 
         result = helper.objectKeysToLower(result);
 
-        result.kategorie = produktkategorieDao.loadById(result.kategorieid);
-        delete result.kategorieid;
-        result.mehrwertsteuer = mehrwertsteuerDao.loadById(result.mehrwertsteuerid);
-        delete result.mehrwertsteuerid;
-        if (helper.isNull(result.datenblattid)) {
-            result.datenblatt = null;
-        } else {
-            result.datenblatt = downloadDao.loadById(result.datenblattid);
-        }
-        delete result.datenblattid;
-        result.bilder = produktbildDao.loadByParent(result.id);
-        for (i = 0; i < result.bilder.length; i++) {
-            delete result.bilder[i].produktid;
-        }
-
-        result.mehrwertsteueranteil = helper.round((result.nettopreis / 100) * result.mehrwertsteuer.steuersatz);
-
-        result.bruttopreis = helper.round(result.nettopreis + result.mehrwertsteueranteil);
-
         return result;
     }
-*/
+/*
     loadAll() {
        // const produktkategorieDao = new ProduktkategorieDao(this._conn);
        // var categories = produktkategorieDao.loadAll();
