@@ -78,7 +78,7 @@ serviceRouter.post("/kochkurs", function(request, response) {
         response.status(400).json(helper.jsonMsgError(ex.message));
     }
 });
-/*
+/* ZUM ÄNDERN
 serviceRouter.put("/kochkurs", function(request, response) {
     helper.log("Service Kochkurs: Client requested update of existing record");
 
@@ -132,6 +132,7 @@ serviceRouter.put("/kochkurs", function(request, response) {
     }    
 });
 
+*/
 serviceRouter.delete("/kochkurs/:id", function(request, response) {
     helper.log("Service Kochkurs: Client requested deletion of record, id=" + request.params.id);
 
@@ -145,6 +146,6 @@ serviceRouter.delete("/kochkurs/:id", function(request, response) {
         helper.logError("Service Kochkurs: Error deleting record. Exception occured: " + ex.message);
         response.status(400).json(helper.jsonMsgError(ex.message));
     }
-});*/
+});
 
 module.exports = serviceRouter;
