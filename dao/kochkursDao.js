@@ -51,7 +51,7 @@ class KochkursDao {
     create( titel = "", leistungen = "", informationen = "", bruttopreis = 0.0) {
        // const produktbildDao = new ProduktbildDao(this._conn);
 
-        var sql = "INSERT INTO Kochkurs (Titel,Leistungen,Informationen,Bruttoopreis) VALUES (?,?,?,?)";
+        var sql = "INSERT INTO Kochkurs (Titel,Leistungen,Informationen,Bruttopreis) VALUES (?,?,?,?)";
         var statement = this._conn.prepare(sql);
         var params = [titel, leistungen, informationen, bruttopreis];
         var result = statement.run(params);
