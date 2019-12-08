@@ -61,6 +61,7 @@ serviceRouter.post("/kochkurs", function(request, response) {
     if (!helper.isNumeric(request.body.bruttopreis)) 
         errorMsgs.push("bruttopreis muss eine Zahl sein");
     
+        console.log(request.body);
    
     if (errorMsgs.length > 0) {
         helper.log("Service Kochkurs: Creation not possible, data missing");
@@ -70,7 +71,7 @@ serviceRouter.post("/kochkurs", function(request, response) {
 
     const kochkursDao = new KochkursDao(request.app.locals.dbConnection);
     try {
-        var result = kochkursDao.create( request.body.titel, request.body.leistungen, request.body.informationen, request.body.bruttppreis);
+        var result = kochkursDao.create( request.body.titel, request.body.leistungen, request.body.informationen, request.body.bruttopreis);
         helper.log("Service Kochkurs: Record inserted");
         response.status(200).json(helper.jsonMsgOK(result));
     } catch (ex) {

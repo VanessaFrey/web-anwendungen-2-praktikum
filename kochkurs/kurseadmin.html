@@ -180,11 +180,15 @@
          $('#kursspeichern').click(function() {
             console.log("button kursspeichern wurde geklickt");
 
+            var bp = $('#bruttopreis').val();
+            bp = bp.replace(',', '.');
+            bp = parseFloat(bp);
+
             var obj = { 
                'titel': $('#titel').val(),
                'leistungen': $('#leistungen').val(),
                'informationen': $('#informationen').val(),
-               'bruttopreis': $('#bruttopreis').val()
+               'bruttopreis': bp
             };
 
             console.log(obj);
