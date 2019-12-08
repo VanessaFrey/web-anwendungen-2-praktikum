@@ -101,6 +101,11 @@
                                        <td><strong>BruttoPreis: </strong></td>
                                        <td><input type="text" name="Bruttopreis" id="bruttopreis" placeholder="Bruttopreis"/></td>
                                     </tr>
+
+                                    <tr>
+                                          <td><strong>Bildpfad: </strong></td>
+                                          <td><input type="text" name="bildpfad" id="src" placeholder="src"/></td>
+                                       </tr>
                                     
                                  </table>
                                  </br></br></br>
@@ -188,7 +193,8 @@
                'titel': $('#titel').val(),
                'leistungen': $('#leistungen').val(),
                'informationen': $('#informationen').val(),
-               'bruttopreis': bp
+               'bruttopreis': bp,
+               'src':  $('#src').val()
             };
 
             console.log(obj);

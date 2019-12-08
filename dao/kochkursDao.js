@@ -48,12 +48,12 @@ class KochkursDao {
     }
     
 
-    create( titel = "", leistungen = "", informationen = "", bruttopreis = 0.0) {
+    create( titel = "", leistungen = "", informationen = "", bruttopreis = 0.0, src = "") {
        // const produktbildDao = new ProduktbildDao(this._conn);
 
-        var sql = "INSERT INTO Kochkurs (Titel,Leistungen,Informationen,Bruttopreis) VALUES (?,?,?,?)";
+        var sql = "INSERT INTO Kochkurs (Titel,Leistungen,Informationen,Bruttopreis,src) VALUES (?,?,?,?,?)";
         var statement = this._conn.prepare(sql);
-        var params = [titel, leistungen, informationen, bruttopreis];
+        var params = [titel, leistungen, informationen, bruttopreis, src];
         var result = statement.run(params);
 
         if (result.changes != 1) 
