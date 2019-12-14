@@ -82,82 +82,16 @@
 	  
       <!-- **** Main **** -->
       <main>	  
-               <!-- Content 1 ASIATISCH -->
+               
+         <div id="kursKasten">
+            <!-- Contents --><!-- dieser Bereich ist dynamisch  -->   
+                 
+			 </div>
+			   
+			   
+			    <!-- Content 2 GRILLEN   AAAAALT STATISCH
                <div class="motion">
-                  <!-- Header -->
-                  <div class="motion-header">
-                     <div class="motion-header-inside">
-                        <div class="header-fullsize">
-							</br>
-                           <h1> ASIATISCH </h1>
-                        </div>
-                     </div>
-                  </div>
-                  <!-- Image-Content -->
-                  <div class="motion-content">
-                     <div class="motion-content-inside">
-                        <div class="motion-fullsize">
-                           <div class="content-first">
-                              <img src="../kochkurs/image/kochkursArt/sushi.jpg" alt="Sushi" width="100%" height="auto">
-							  
-                           </div>
-                           <div class="content-first">
-                               <h4> Leistungen </h4>
-								 <ul>
-									<li>Aperitif zur Begrüßung</li>
-									<li>Warenkunde und Zutateneinweisung</li>
-									<li>Kochzutaten und Utensilien</li>
-									<li>Einführung in die Kunst des Sushi-Reis Kochens</li>
-									<li>Zubereitung diverser Sushi Gerichte</li>
-									<li>Gemeinsame Verkostung</li>
-									<li>Getränke inklusive</li>
-									<li>Rezepte zum Download</li>
-								 </ul>
-							  
-                           </div>
-						   <div class="content-first">
-                               <h4> Informationen </h4>
-								 <ul>
-									<li><strong>Teilnehmer:</strong> 6-10 Personen</li></br>
-									
-									<li><strong>Dauer:</strong> ca. 3-4 Stunden</li></br>
-									<li><strong>Ausrüstung:</strong> Kochschürze</li></br>
-									<li><strong>Verfügbarkeit:</strong> Ganzjährig</li></br>
-									
-								 </ul>
-							  
-                           </div>
-                          
-						  <div class="content-first">
-                               <h4> Preis </h4></br>
-								
-								
-								 <ul>
-									<li><h4>99,90€ / pro Person</h4></li>					
-									<li>zzgl. Verpackung & Versand (inkl. Mwst.)</li>								
-								 </ul>
-							  
-                           </div>
-						  
-                        </div>
-                     </div>
-                  </div>
-                  <div class="discover-btn">
-                     <div class="discover-inside">
-                        <div class="button">
-                           <a href="warenkorb.html">
-                              <p> IN DEN WARENKORB </p>
-                           </a>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-			   
-			   
-			   
-			    <!-- Content 2 GRILLEN -->
-               <div class="motion">
-                  <!-- Header -->
+                   Header 
                   <div class="motion-header">
                      <div class="motion-header-inside">
                         <div class="header-fullsize">
@@ -166,7 +100,7 @@
                         </div>
                      </div>
                   </div>
-                  <!-- Image-Content -->
+                   Image-Content 
                   <div class="motion-content">
                      <div class="motion-content-inside">
                         <div class="motion-fullsize">
@@ -224,9 +158,9 @@
                </div>
 			   
 			   
-			   <!-- Content 3 ITALIENISCH -->
+			   Content 3 ITALIENISCH
                <div class="motion">
-                  <!-- Header -->
+                   Header
                   <div class="motion-header">
                      <div class="motion-header-inside">
                         <div class="header-fullsize">
@@ -235,7 +169,7 @@
                         </div>
                      </div>
                   </div>
-                  <!-- Image-Content -->
+                   Image-Content
                   <div class="motion-content">
                      <div class="motion-content-inside">
                         <div class="motion-fullsize">
@@ -300,9 +234,9 @@
 			   
 			   
 			   
-			   <!-- Content 4 BACKKURS -->
+			    Content 4 BACKKURS 
                <div class="motion">
-                  <!-- Header -->
+                  Header
                   <div class="motion-header">
                      <div class="motion-header-inside">
                         <div class="header-fullsize">
@@ -311,7 +245,7 @@
                         </div>
                      </div>
                   </div>
-                  <!-- Image-Content -->
+                   Image-Content
                   <div class="motion-content">
                      <div class="motion-content-inside">
                         <div class="motion-fullsize">
@@ -350,8 +284,7 @@
 									
 																		
 								 </ul>
-								 
-								 
+
 							  
                            </div>
 						  
@@ -369,7 +302,7 @@
                   </div>
                </div>
 			   
-			   
+			   -->
 			   
 			   <!-- Content 5 -->
                <div class="motion">
@@ -452,5 +385,95 @@
       <script src="../kochkurs/javascript/search/search.js"></script> 
 	  <!-- **** Script Search **** -->
       <script src="../kochkurs/javascript/cart/cart.js"></script>  
+
+      <script>
+
+            $(document).ready(function() {
+   
+               $.ajax({
+                  url: 'http://localhost:8000/api/Kochkurs/alle',
+                  method: 'GET',
+                  dataType: "json"
+               })
+               .done(function(response) {
+                  var kurse = response.daten;
+   
+                  var content = '';
+   
+                  for (i=0; i<kurse.length; i++) {
+
+                     // Titel
+                     content += '<div class="motion">';
+                     content += '<div class="motion-header">';
+                     content += '<div class="motion-header-inside">';
+                     content += '<div class="header-fullsize">';
+                     content += '</br> <h1>';
+                     content += kurse[i].titel;
+                     content += '</h1> </div>'; 
+                     content += '</div>'; 
+                     content += '</div>'; 
+                        
+                    //Image Content
+                     content += '<div class="motion-content">';
+                     content += '<div class="motion-content-inside">';
+                     content += '<div class="motion-fullsize">';
+
+                     //Imagepath
+                     content += '<div class="content-first">';
+                     content += ' <img src="';
+                     content += kurse[i].src;
+                     content += '"width="100%" height="auto">';
+                     content += '</div>'; 
+
+                     //Leistungen
+                     content += '<div class="content-first">';
+                     content += '<h4> Leistungen </h4>';
+                     content += kurse[i].leistungen;
+                     content += '</br> </br></div>'; 
+
+                     //Informationen
+                     content += '<div class="content-first">';
+                     content += '<h4> Informationen </h4>';
+                     content += kurse[i].informationen;
+                     content += '</div>'; 
+
+                     //Preis
+                     content += '<div class="content-first">';
+                     content += '<h4> Preis </h4> </br> <h4>';
+                     content += kurse[i].bruttopreis;
+                     content += '0€ / pro Person </h4> zzgl. Verpackung & Versand (inkl. Mwst.)'; 
+                     content += '</div>'; 
+                     
+
+                     content += '</div>'; 
+                     content += '</div>'; 
+                     content += '</div>'; 
+
+                     // In den Warenkorb legen
+
+                     content += '<div class="discover-btn">';
+                     content += '<div class="discover-inside">';
+                     content += '<div class="button">';
+                     content += '<a href="warenkorb.html"> <p> IN DEN WARENKORB </p> </a>';
+
+                     content += '</div>'; 
+                     content += '</div>'; 
+                     content += '</div>'; 
+                     content += '</div>'; 
+
+                  }
+   
+                  $('#kursKasten').append(content);
+               })
+               .fail(function (jqXHR, statusText, error) {
+                   console.log("Response Code: " + jqXHR.status + " - Fehlermeldung: " + jqXHR.responseText);
+                   alert("Ein Fehler ist aufgetreten, hier soll der Titel der Leistung erscheinen");
+               });;
+
+            });
+         
+  
+         </script>
+
    </body>
 </html>
