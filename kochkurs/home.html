@@ -285,7 +285,7 @@
             })
             .done(function(response) {
                var kurse = response.daten;
-
+               var id ='';
                var content = '';
 
                for (i=0; i<kurse.length; i++) {
@@ -299,9 +299,12 @@
                   content += '</a>';
                   content += kurse[i].titel;
                   content += '</div>'; 
+                  id += kurse[i].id;
+
                }
 
                $('#kursvorschau').append(content);
+               
             })
             .fail(function (jqXHR, statusText, error) {
                 console.log("Response Code: " + jqXHR.status + " - Fehlermeldung: " + jqXHR.responseText);
