@@ -397,13 +397,17 @@
                })
                .done(function(response) {
                   var kurse = response.daten;
-   
+                  //var id = '';
                   var content = '';
    
                   for (i=0; i<kurse.length; i++) {
-
+                     /*<div id="kursKasten">
+                     */
                      // Titel
-                     content += '<div class="motion">';
+                   
+                     content += '<div class="motion" id="';
+                     content += kurse[i].id;
+                     content +='">';
                      content += '<div class="motion-header">';
                      content += '<div class="motion-header-inside">';
                      content += '<div class="header-fullsize">';

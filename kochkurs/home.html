@@ -289,8 +289,11 @@
                var content = '';
 
                for (i=0; i<kurse.length; i++) {
+                  id += kurse[i].id;
                   content += '<div class="content-first">';
-                  content += '<a href="kochkurse.html">';
+                  content += '<a href="kochkurse.html#';
+                  content+= id;
+                  content += '">';
                   content += ' <img src="';
                   // hier jetzt irgendwie src vom produkbild holen
                   content += kurse[i].src;
@@ -299,7 +302,7 @@
                   content += '</a>';
                   content += kurse[i].titel;
                   content += '</div>'; 
-                  id += kurse[i].id;
+                  
 
                }
 
