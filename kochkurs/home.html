@@ -291,9 +291,7 @@
                for (i=0; i<kurse.length; i++) {
                  
                   content += '<div class="content-first">';
-                  content += '<a href="kochkurse.html#';
-                  content+= kurse[i].id;
-                  content += '">';
+                  content += '<a href="kochkurse.html?scrollTo=' + kurse[i].id + '">';
                   content += ' <img src="';
                   // hier jetzt irgendwie src vom produkbild holen
                   content += kurse[i].src;

@@ -15,7 +15,10 @@
 	  
       <!-- #### Verknüpfung JQUERY #### -->
       <script src="https://code.jquery.com/jquery-3.4.0.js"></script>
-	  
+   
+      <script src="javascript/urlparams.js"></script>
+      <script src="javascript/cart.js"></script>
+
       <!-- #### Verknüpfung Bootstrap #### -->
       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
      
@@ -387,6 +390,7 @@
       <script src="../kochkurs/javascript/cart/cart.js"></script>  
 
       <script>
+         var kurse = null;
 
             $(document).ready(function() {
    
@@ -396,7 +400,7 @@
                   dataType: "json"
                })
                .done(function(response) {
-                  var kurse = response.daten;
+                  kurse = response.daten;
                   //var id = '';
                   var content = '';
    
@@ -405,7 +409,7 @@
                      */
                      // Titel
                    
-                     content += '<div class="motion" id="';
+                     content += '<div class="motion" id="kochkurs';
                      content += kurse[i].id;
                      content +='">';
                      content += '<div class="motion-header">';
@@ -458,7 +462,7 @@
                      content += '<div class="discover-btn">';
                      content += '<div class="discover-inside">';
                      content += '<div class="button">';
-                     content += '<a href="warenkorb.html"> <p> IN DEN WARENKORB </p> </a>';
+                     content += '<a href="#" onClick="addProductToCart(' + i + ')"> <p> IN DEN WARENKORB </p> </a>';
 
                      content += '</div>'; 
                      content += '</div>'; 
@@ -466,8 +470,21 @@
                      content += '</div>'; 
 
                   }
-   
+
                   $('#kursKasten').append(content);
+
+                  var scrollToId = $.urlParam('scrollTo');
+                  if (scrollToId != null) {
+                     console.log('scroll to entry with id ' + scrollToId);
+
+                     var scrollingTarget = $('#kochkurs' + scrollToId);
+                     $('html, body').animate({
+                        scrollTop:$(scrollingTarget).offset().top
+                     },'slow');
+                  }
+
+                
+                  
                })
                .fail(function (jqXHR, statusText, error) {
                    console.log("Response Code: " + jqXHR.status + " - Fehlermeldung: " + jqXHR.responseText);
@@ -477,6 +494,18 @@
             });
          
   
+            function addProductToCart(idx) {
+               // produkt aus array holen mit dem idx
+               var product = kurse[idx];
+               console.log('adding product to cart');
+               console.log(product);
+               // produkt mit der menge 1 zum Warenkorb hinzufügen
+               addToCart(product, 1);
+               // zur warenkorb seite springen
+               location.href = 'warenkorb.html';
+               
+            }
+
          </script>
 
    </body>

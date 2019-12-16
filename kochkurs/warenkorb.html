@@ -208,8 +208,7 @@
       </footer>
       <!-- **** Script Menu-Toggle **** -->
       <script src="../kochkurs/javascript/menu/menu-toggle.js"></script>
-      <!-- **** Script Slideshow **** -->
-      <script src="../kochkurs/javascript/slideshow/carousel.js"></script>
+
 	  <!-- **** Script Search **** -->
 	  <script src="../kochkurs/javascript/search/search.js"></script> 
 	  <!-- **** Script Search **** -->
@@ -295,6 +294,9 @@
                content+='</div>';
 
             $('#warenkorb').append(content);
+
+
+          
          })
          .fail(function (jqXHR, statusText, error) {
              console.log("Response Code: " + jqXHR.status + " - Fehlermeldung: " + jqXHR.responseText);
