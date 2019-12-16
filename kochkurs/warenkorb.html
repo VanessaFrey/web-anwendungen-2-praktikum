@@ -12,6 +12,10 @@
       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
       <!-- #### Verknüpfung JQUERY #### -->
       <script src="https://code.jquery.com/jquery-3.4.0.js"></script>
+
+      <script src="javascript/urlparams.js"></script>
+      <script src="javascript/cart.js"></script>
+
       <!-- #### Verknüpfung Bootstrap #### -->
       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
       <!-- Verknüpfung Tab-Icon -->
@@ -293,9 +297,13 @@
                content+='</div>';
                content+='</div>';
 
+              // content +='showCart()';
+        
+
             $('#warenkorb').append(content);
-
-
+               
+           
+         //content += '<a href="#" onClick="addProductToCart(' + i + ')"> <p> IN DEN WARENKORB </p> </a>';
           
          })
          .fail(function (jqXHR, statusText, error) {
@@ -305,6 +313,12 @@
 
       });
    
+
+      function showCart() {
+               console.log("hallo");
+               
+               
+            }
 
    </script>
 
